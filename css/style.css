@@ -51,8 +51,10 @@ header {
 }
 
 .albumBody {
+	overflow-y: scroll;
 	width: calc(100% - 40%);
 	float: left;
+	height: calc(100vh - 140px);
 }
 
 .albumItem {
