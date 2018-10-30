@@ -33,9 +33,9 @@ fetch(apiUrl).then(response => {
 }).then(data => {
 // Work with JSON data
 	var photos = data;
-// Display each person details
+// Display each photo details
 	photos.forEach(function(photo) {
-		output.innerHTML = '<div class="albumItem"><a data-fancybox="gallery" href="' + photo.url + '"><img src="' + photo.thumbnailUrl + '" alt="' + photo.title + '"></a></div>';
+		output.innerHTML += '<div class="albumItem"><a data-fancybox="gallery" href="' + photo.url + '"><img src="' + photo.thumbnailUrl + '" alt="' + photo.title + '"></a></div>';
 	})
 }).catch(err => {
 // Print error, if any
