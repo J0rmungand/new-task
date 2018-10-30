@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans&subset=cyrillic');
+
+body {
+	font-family: 'PT Sans', sans-serif;
+	position: relative;
+	background-color: white;
+	min-height: 100%;
+	min-width: 960px;
+}
+
+header {
+	text-align: center;
+}
+
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 960px;
+}
+
+.row {
+	width: 940px;
+	display: inline;
+	float: left;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.albumTtile {
+	width: 100%;
+	text-align: center;
+}
+
+.albumPrev, .albumNext {
+	width: 20%;
+	text-align: center;
+}
+
+.albumPrev {
+	float: left;
+}
+
+.albumNext {
+	float: right;
+}
+
+.albumBody {
+	width: calc(100% - 40%);
+	float: left;
+}
+
+.albumItem {
+	width: calc((100% / 3) - 10px);
+	float: left;
+	margin: 5px;
+	text-align: center;
+}
+
+.albumItem>a {
+	display: block;
+}
+
+.albumItem>a>img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+@media (max-width: 1024px) {
+	html, body {
+		min-width: 100%;
+	}
+
+	.container {
+		width: 100%;
+		padding: 0px 10px;
+	}
+
+	.row {
+		width: 100%;
+		margin: 0;
+	}
+
+	.albumItem {
+		width: calc((100% / 2) - 10px);
+	}
+}
+
+@media (max-width: 500px) {
+	.albumItem {
+		width: calc(100% - 10px);
+	}
+}
