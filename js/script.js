@@ -31,7 +31,6 @@ function getAlbum() {
 
 			span.innerHTML = 'Альбом № ' + photo.albumId;
 			div.className = 'albumItem';
-			div.style.opacity++;
 			a.href = photo.url;
 			a.dataset.fancybox = 'gallery';
 			img.src = photo.thumbnailUrl;
