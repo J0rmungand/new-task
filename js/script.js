@@ -1,7 +1,7 @@
 var currentAlbum = 1;
 
-document.querySelector('.next').addEventListener('click', getNextAlbum);
-document.querySelector('.prev').addEventListener('click', getPrevAlbum);
+document.querySelector('.albumNext').addEventListener('click', getNextAlbum);
+document.querySelector('.albumPrev').addEventListener('click', getPrevAlbum);
 
 function createGalleryElement(element) {
 	return document.createElement(element);

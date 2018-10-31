@@ -40,6 +40,9 @@ header {
 .albumPrev, .albumNext {
 	width: 20%;
 	text-align: center;
+	height: calc(100vh - 140px);
+	background: #6598de;
+	position: relative;
 }
 
 .albumPrev {
@@ -50,6 +53,29 @@ header {
 	float: right;
 }
 
+.albumPrev:before {
+	left: 0;
+}
+
+.albumNext:before {
+	right: 0;
+}
+
+.albumNext:before, .albumPrev:before {
+	content:'';
+	position: absolute;
+	top: 0;
+	width: 0;
+	height: 100%;
+	background: rgba(255,255,255,0.3);
+	border-radius: 5px;
+	transition: all 2s ease;
+}
+
+.albumPrev:hover:before, .albumNext:hover:before {
+	width: 30%;
+}
+
 .albumBody {
 	overflow-y: scroll;
 	width: calc(100% - 40%);
@@ -57,10 +83,27 @@ header {
 	height: calc(100vh - 140px);
 }
 
+.albumBody::-webkit-scrollbar-track {
+	border-radius: 4px;
+}
+
+.albumBody::-webkit-scrollbar {
+	width: 7px;
+}
+
+.albumBody::-webkit-scrollbar-thumb {
+	border-radius: 4px;
+	background: #f0f2f5;
+}
+
+.albumBody:hover::-webkit-scrollbar-thumb {
+	background: #6a7d9b;
+}
+
 .albumItem {
 	width: calc((100% / 3) - 10px);
 	float: left;
-	margin: 5px;
+	margin: 0px 5px 10px 5px;
 	text-align: center;
 }
 
