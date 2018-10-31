@@ -36,6 +36,7 @@ function getAlbum() {
 			img.src = photo.thumbnailUrl;
 			img.alt = photo.title;
 
+
 			append(document.querySelector('.albumTtile'), span);
 			append(document.querySelector('.albumBody'), div);
 			append(div, a);
