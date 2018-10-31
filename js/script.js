@@ -1,5 +1,6 @@
 var currentAlbum = 1;
 
+
 document.querySelector('.albumNext').addEventListener('click', getNextAlbum);
 document.querySelector('.albumPrev').addEventListener('click', getPrevAlbum);
 
@@ -11,19 +12,26 @@ function append(parent, element) {
 	return parent.appendChild(element);
 }
 
+function clearContentBySelector (element1, element2) {
+	return document.querySelector(element1).innerHTML = '', 
+		   document.querySelector(element2).innerHTML = '';
+}
+
 function getAlbum() {
 	fetch('https://jsonplaceholder.typicode.com/albums/' + currentAlbum + '/photos')
 	.then((response) => response.json())
 	.then(function (data) {
 		var photos = data;
+		var span = createGalleryElement('span');
+		
 		return photos.forEach(function (photo) {
-			var span = createGalleryElement('span'),
-				div = createGalleryElement('div'),
+			var div = createGalleryElement('div'),
 				a = createGalleryElement('a'),
 				img = createGalleryElement('img');
 
-			//span.innerHTML = photo.albumId;
+			span.innerHTML = 'Альбом № ' + photo.albumId;
 			div.className = 'albumItem';
+			div.style.opacity++;
 			a.href = photo.url;
 			a.dataset.fancybox = 'gallery';
 			img.src = photo.thumbnailUrl;
@@ -47,7 +55,7 @@ function getNextAlbum(){
 	if (currentAlbum == 100) {
 		currentAlbum = 100;
 	} 
-	document.querySelector('.albumBody').innerHTML = '';
+	clearContentBySelector('.albumBody', '.albumTtile');
 	getAlbum();
 }
 
@@ -57,7 +65,7 @@ function getPrevAlbum(){
 	if (currentAlbum == 0) {
 		currentAlbum = 1;
 	} 
-	document.querySelector('.albumBody').innerHTML = '';
+	clearContentBySelector('.albumBody', '.albumTtile');
 	getAlbum();
 }
 
