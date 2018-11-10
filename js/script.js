@@ -5,9 +5,13 @@ document.querySelector('.albumNext').addEventListener('click', getNextAlbum);
 document.querySelector('.albumPrev').addEventListener('click', getPrevAlbum);
 
 function createGalleryElement (element,nameClass) {
-	element = document.createElement(element);
-	element.className=nameClass;
-	return element;
+	if(typeof nameClass == "undefined") {
+		return document.createElement(element);
+	} else {
+		element = document.createElement(element);
+		element.className=nameClass;
+		return element;	
+	}
 }
 
 function append (parent, element) {
