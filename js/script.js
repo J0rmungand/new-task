@@ -4,8 +4,10 @@ var currentAlbum = 1;
 document.querySelector('.albumNext').addEventListener('click', getNextAlbum);
 document.querySelector('.albumPrev').addEventListener('click', getPrevAlbum);
 
-function createGalleryElement (element) {
-	return document.createElement(element);
+function createGalleryElement (element,nameClass) {
+	element = document.createElement(element);
+	element.className=nameClass;
+	return element;
 }
 
 function append (parent, element) {
@@ -42,14 +44,14 @@ function getAlbum () {
 		var photos = data;
 		
 		return photos.forEach(function (photo) {
-			var div = createGalleryElement('div'),
+			var div = createGalleryElement('div', 'albumItem'),
 				a = createGalleryElement('a'),
 				large = document.querySelector('.large'),
 				close = document.querySelector('.product-image-overlay-close'),
 				img = createGalleryElement('img');
 				
 
-			div.className = 'albumItem';
+
 			a.className = 'small';
 			a.href = '#';
 			a.dataset.largeSrc = photo.url;
@@ -71,9 +73,8 @@ function getAlbum () {
 	.then(response => response.json())
 	.then(function (album) {
 		var span = createGalleryElement('span'),
-			div = createGalleryElement('div');
+			div = createGalleryElement('div', 'albumTtile');
 
-		div.className = 'albumTtile';
 		span.innerHTML = album.title;
 
 		append(document.querySelector('.albumBody'), div);
@@ -105,6 +106,8 @@ function getPrevAlbum () {
 }
 
 getAlbum();
+
+
 
 
 
