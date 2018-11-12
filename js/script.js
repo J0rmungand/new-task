@@ -102,8 +102,8 @@ function getNextAlbum () {
 
 function getPrevAlbum () {
 	currentAlbum--;
-	if (currentAlbum == 0) {
-		currentAlbum = 1;
+	if (currentAlbum < 1) {
+		currentAlbum = 100;
 	} 
 	clearContentBySelector('.albumBody');
 	getAlbum();
